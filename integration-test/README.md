@@ -1,1 +1,1 @@
-# integration-test-demo
+# integration-test
