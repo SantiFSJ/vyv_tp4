@@ -1,11 +1,14 @@
-package com.javatechie.crud.example.controller;
+package com.unrn.vv.crud.controller;
 
-import com.javatechie.crud.example.entity.Product;
-import com.javatechie.crud.example.service.ProductService;
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.unrn.vv.crud.entity.Product;
+import com.unrn.vv.crud.service.ProductService;
 
 import java.net.URI;
 import java.util.List;
@@ -48,7 +51,7 @@ public class ProductController {
         return service.updateProduct(id, product);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable int id) {
         return service.deleteProduct(id);
     }

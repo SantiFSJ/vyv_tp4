@@ -1,9 +1,10 @@
-package com.javatechie.crud.example.service;
+package com.unrn.vv.crud.service;
 
-import com.javatechie.crud.example.entity.Product;
-import com.javatechie.crud.example.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.unrn.vv.crud.entity.Product;
+import com.unrn.vv.crud.repository.ProductRepository;
 
 import java.util.List;
 

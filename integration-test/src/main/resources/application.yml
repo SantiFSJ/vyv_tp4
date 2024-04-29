@@ -2,7 +2,7 @@
 #  datasource:
 #    username: root
 #    password: password
-#    url: jdbc:mysql://localhost:3306/javatechie
+#    url: jdbc:mysql://localhost:3306/vv_practica
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #  jpa:
 #    show-sql: true

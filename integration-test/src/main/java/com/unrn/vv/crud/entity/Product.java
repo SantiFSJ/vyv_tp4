@@ -1,4 +1,4 @@
-package com.javatechie.crud.example.entity;
+package com.unrn.vv.crud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "PRODUCT_TBL")
+@Table(name = "products")
 public class Product {
 
     @Id

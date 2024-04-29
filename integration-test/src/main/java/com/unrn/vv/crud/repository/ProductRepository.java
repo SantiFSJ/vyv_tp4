@@ -1,7 +1,9 @@
-package com.javatechie.crud.example.repository;
+package com.unrn.vv.crud.repository;
 
-import com.javatechie.crud.example.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.unrn.vv.crud.entity.Product;
+
 
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     Product findByName(String name);

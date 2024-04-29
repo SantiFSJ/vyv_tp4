@@ -1,7 +1,8 @@
-package com.javatechie.crud.example;
+package com.unrn.vv.crud;
 
-import com.javatechie.crud.example.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.unrn.vv.crud.entity.Product;
 
 public interface TestH2Repository extends JpaRepository<Product,Integer> {
 }
