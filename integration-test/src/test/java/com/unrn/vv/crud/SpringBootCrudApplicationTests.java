@@ -39,7 +39,6 @@ class SpringBootCrudApplicationTests {
         baseUrl = baseUrl.concat(":").concat(port + "").concat("/products");
     }
 
-
     @Test
     public void testAddProduct() {
         Product product = new Product("headset", 2, 7999);
@@ -50,7 +49,7 @@ class SpringBootCrudApplicationTests {
 
     @Test
     @Sql(statements = "INSERT INTO products (id,name, quantity, price) VALUES (4,'CAR', 1, 34000)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(statements = "DELETE FROM products WHERE name='CAR'", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+  
     public void testGetProducts() {
         List<Product> products = restTemplate.getForObject(baseUrl, List.class);
         assertEquals(1, products.size());

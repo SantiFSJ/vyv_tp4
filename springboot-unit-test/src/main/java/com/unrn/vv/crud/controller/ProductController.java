@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.unrn.vv.crud.entity.Product;
+import com.unrn.vv.crud.model.Product;
 import com.unrn.vv.crud.service.ProductService;
 
 import java.net.URI;
@@ -36,6 +36,7 @@ public class ProductController {
     public Product findProductById(@PathVariable int id) {
         return service.getProductById(id);
     }
+
 
     @PutMapping("/update/{id}")
     public Product updateProduct(@RequestBody Product product, @PathVariable int id) {

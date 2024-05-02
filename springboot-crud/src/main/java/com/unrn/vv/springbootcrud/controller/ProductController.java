@@ -1,16 +1,12 @@
-package com.unrn.vv.crud.controller;
+package com.unrn.vv.springbootcrud.controller;
 
-import lombok.extern.log4j.Log4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.unrn.vv.crud.entity.Product;
-import com.unrn.vv.crud.service.ProductService;
+import com.unrn.vv.springbootcrud.model.Product;
+import com.unrn.vv.springbootcrud.service.ProductService;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -36,6 +32,7 @@ public class ProductController {
     public Product findProductById(@PathVariable int id) {
         return service.getProductById(id);
     }
+
 
     @PutMapping("/update/{id}")
     public Product updateProduct(@RequestBody Product product, @PathVariable int id) {
