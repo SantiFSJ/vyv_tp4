@@ -3,6 +3,7 @@ package com.unrn.vv.crud.controller;
 import lombok.extern.log4j.Log4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,6 +14,8 @@ import com.unrn.vv.crud.service.ProductService;
 import java.net.URI;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -21,14 +24,17 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody Product product, HttpServletResponse response) {
+        
         product = service.saveProduct(product);
+        response.setStatus(HttpServletResponse.SC_CREATED);
         return product;
     }
 
 
     @GetMapping
-    public List<Product> findAllProducts() {
+    public List<Product> findAllProducts(HttpServletResponse response) {
+
         return service.getProducts();
     }
 

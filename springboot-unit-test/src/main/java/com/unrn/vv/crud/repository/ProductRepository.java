@@ -11,6 +11,5 @@ import com.unrn.vv.crud.service.MyException;
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     Product findByName(String name);
 
-    List<Product> findAllMyProducts() throws MyException;
 }
 

@@ -30,24 +30,24 @@ class SpringBootCrudApplicationTests {
 
 
 	@Test
-	/*
-	 * Probar
-	 */
 	public void addProductTest() {
 
 	}
 
 
 	@Test
-	/*
-	 * Listado de productos
-	 */
 	public void listProductTest() throws MyException {
 		// Mockear el repository
-		when(repository.findAllMyProducts()).thenThrow(MyException.class);
+		when(repository.findAll()).thenReturn(Stream.of(
+			new Product(1, "headset", 100, 54.3 ),
+			new Product(1, "phone", 120, 980 )
+		).collect(Collectors.toList()));
 
-		assertThrows(MyException.class, () -> service.getProducts());
-
+		List<Product> products = service.getProducts();
+		assertAll(
+			() -> assertNotNull(products),
+			() -> assertEquals(2, products.size())
+		);
 	}
 
 

@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.unrn.vv.crud.model.Product;
+import com.unrn.vv.crud.service.MyException;
 import com.unrn.vv.crud.service.ProductService;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,7 +31,12 @@ public class ProductController {
 
     @GetMapping
     public List<Product> findAllProducts() {
-        return service.getProducts();
+        try {
+            return service.getProducts();
+        } catch (MyException e) {
+            e.printStackTrace();
+           return new ArrayList();
+        }
     }
 
     @GetMapping("/{id}")

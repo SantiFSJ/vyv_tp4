@@ -25,7 +25,7 @@ public class ProductService {
     public List<Product> getProducts() throws MyException {
         List<Product> productos;
         try {
-            productos = repository.findAllMyProducts();
+            productos = repository.findAll();
         } catch (Exception e) {
             throw new MyException();
         }
