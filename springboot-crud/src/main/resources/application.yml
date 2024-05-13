@@ -1,11 +1,19 @@
-#spring:
-#  datasource:
-#    username: root
-#    password: password
-#    url: jdbc:mysql://localhost:3306/vv_practica
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
-#    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://localhost:3306/vv_practica
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+springdoc:
+  api-docs:
+    enabled: true
+    path: "/api-docs"
+  swagger-ui:
+    path: "/swagger-ui.html"
+    url: "/api-docs"
+    config-url: /api-docs/swagger-config
