@@ -31,7 +31,10 @@ class SpringBootCrudApplicationTests {
 
 	@Test
 	public void addProductTest() {
-
+		Product product = new Product(1, "headset", 100, 54.3 );
+		when(repository.save(product)).thenReturn(product);
+		Product savedProduct = service.saveProduct(product);
+		assertEquals(product, savedProduct);
 	}
 
 
