@@ -6,25 +6,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "sales")
 public class Sale extends BaseEntity{
+    @Id
+    @GeneratedValue
+    private int id;
     private LocalDate date;
     private double total;
     private String state;
 
     @ManyToMany
-    @JoinTable(
-            name = "sales_products",
-            joinColumns = @JoinColumn(name = "sale_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private ArrayList<Product> products;
+    private List<Product> products;
 
-    public Sale(LocalDate date, double total, String state,ArrayList<Product> products) {
+    public Sale(LocalDate date, double total, String state,List<Product> products) {
         this.date = date;
         this.total = total;
         this.state = state;

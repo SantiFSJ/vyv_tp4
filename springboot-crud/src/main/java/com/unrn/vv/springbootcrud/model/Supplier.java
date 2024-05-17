@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
@@ -12,6 +14,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "suppliers")
 public class Supplier extends BaseEntity{
+    @Id
+    @GeneratedValue
+    private int id;
     private String street;
     private String city;
     private String state;

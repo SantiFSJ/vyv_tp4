@@ -20,6 +20,11 @@ public class ProductsTest {
     }
 
     @Test
+    public void checkStockAfterNewProducts(){
+
+    }
+
+    @Test
     public void createProductWithInvalidSupplier(){
 
     }
@@ -29,8 +34,9 @@ public class ProductsTest {
 
     }
 
+    @Test
+    public void createProductWithInvalidStock(){
 
-
-
+    }
 
 }
