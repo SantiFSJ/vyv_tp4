@@ -8,6 +8,7 @@ import com.unrn.vv.crud.repository.ProductRepository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -45,13 +46,19 @@ public class ProductService {
         repository.deleteById(id);
         return "product deleted !! " + id;
     }
-
     public Product updateProduct(int productId,Product product) {
-        Product existingProduct = repository.findById(productId).orElse(null);
-        existingProduct.setName(product.getName());
-        existingProduct.setQuantity(product.getQuantity());
-        existingProduct.setPrice(product.getPrice());
-        return repository.save(existingProduct);
+        //Product existingProduct = repository.findById(productId).orElse(null);
+        Optional<Product> existingProduct = repository.findById(productId);
+        existingProduct.ifPresent(
+                p -> {
+                    p.setName(product.getName());
+                    p.setQuantity(product.getQuantity());
+                    p.setPrice(product.getPrice());
+                    repository.save(p);
+                }
+
+        );
+        return existingProduct.orElse(null);
     }
 
 
