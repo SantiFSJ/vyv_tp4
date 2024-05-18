@@ -50,10 +50,9 @@ public class SalesControllerTest {
     }
 
     @Test
-    @Sql(statements = "DELETE FROM products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(statements = "TRUNCATE TABLE products", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(statements = "DELETE FROM sales_products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(statements = "DELETE FROM sales", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(statements = "TRUNCATE TABLE sales", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(statements = "DELETE FROM products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     public void testAddSale() {
         Product product = new Product("headset", 2, 7999);
         productService.saveProduct(product);
@@ -65,10 +64,9 @@ public class SalesControllerTest {
     }
 
     @Test
-    @Sql(statements = "DELETE FROM products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(statements = "TRUNCATE TABLE products", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(statements = "DELETE FROM sales_products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(statements = "DELETE FROM sales", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(statements = "TRUNCATE TABLE sales", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(statements = "DELETE FROM products", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     public void testUpdateSale(){
         Product product = new Product("headset", 2, 7999);
         productService.saveProduct(product);
