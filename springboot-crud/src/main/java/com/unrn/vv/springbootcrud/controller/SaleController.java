@@ -4,6 +4,8 @@ package com.unrn.vv.springbootcrud.controller;
 import com.unrn.vv.springbootcrud.model.Sale;
 import com.unrn.vv.springbootcrud.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.unrn.vv.springbootcrud.model.Product;
@@ -19,9 +21,9 @@ public class SaleController {
     private SaleService service;
 
     @PostMapping
-    public Sale addSale(@RequestBody Sale sale) {
+    public ResponseEntity<Sale> addSale(@RequestBody Sale sale) {
         sale = service.saveSale(sale);
-        return sale;
+        return ResponseEntity.status(HttpStatus.CREATED).body(sale);
     }
 
 

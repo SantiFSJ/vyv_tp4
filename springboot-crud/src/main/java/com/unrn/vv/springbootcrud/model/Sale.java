@@ -20,7 +20,7 @@ public class Sale extends BaseEntity{
     private double total;
     private String state;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Product> products;
 
     public Sale(LocalDate date, double total, String state,List<Product> products) {
