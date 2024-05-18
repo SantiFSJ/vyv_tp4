@@ -2,6 +2,8 @@ package com.unrn.vv.springbootcrud.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.unrn.vv.springbootcrud.model.Product;
@@ -17,9 +19,9 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         product = service.saveProduct(product);
-        return product;
+        return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
 
